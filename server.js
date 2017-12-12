@@ -21,7 +21,7 @@ mongoose.model('Snake', SnakeSchema);
 var Snake = mongoose.model('Snake');
 
 // setting up ejs and our views folder
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
 
 // The root route -- we want to get all of the users from the database and then render the index view passing it all of the users
