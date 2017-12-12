@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dash - Snek Details</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>This is a cool snek</h1>
+        <img src="<%= snake.pic_url %>" alt="">
+        <p>Color: <%= snake.color %></p>
+        <p>Species: <%= snake.species %></p>
+        <form action="/snakes/destroy/<%= snake.id %>" method="post">
+            <button type="submit">Delete snek :(</button>
+        </form>
+        <button><a href="/snakes/edit/<%= snake.id %>" style="text-decoration: none; color: black">Edit snek</a></button>
+        <a href="/">Back to all sneks</a>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dash - Edit Snek</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Edit Snek!</h1>
+        <form action="/snakes/<%= snake._id %>" method="post">
+            <div>
+                <label for="species">Species:</label>
+                <input type="text" name="species" id="species" value="<%= snake.species %>">
+            </div>
+            <div>
+                <label for="color">Color:</label>
+                <input type="text" name="color" id="color" value="<%= snake.color %>">
+            </div>
+            <div>
+                <label for="pic_url">Picture url:</label>
+                <input type="text" name="pic_url" id="pic_url" value="<%= snake.pic_url %>">
+            </div>
+            <div>
+                <button type="submit">Edit Snek</button>
+            </div>
+        </form>
+        <a href="/">Back to all Sneks</a>
+    
+    </body>
+</html>
