@@ -66,11 +66,7 @@ app.get('/snakes/:id', function(req, res) {
 
 app.post('/snakes', function(req, res) {
     console.log("BODY", req.body);
-    var snek = new Snake({
-        species: req.body.species,
-        color: req.body.color,
-        pic_url: req.body.pic_url
-    });
+    var snek = new Snake(req.body);
     snek.save(function(err) {
         if (err) {
             console.log(err);
@@ -96,20 +92,7 @@ app.post('/snakes/destroy/:id', function(req, res) {
 
 app.post('/snakes/:id', function(req, res) {
     console.log(req.params.id);
-    Snake.findByIdAndUpdate(req.params.id, { $set: 
-        {
-            species: req.body.species,
-            color: req.body.color,
-            pic_url: req.body.pic_url
-        }
-    });
-    Snake.findByIdAndUpdate(req.params.id, {$set: 
-        {
-            species: req.body.species,
-            color: req.body.color,
-            pic_url: req.body.pic_url
-        }
-    }, function(err, data) {
+    Snake.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, data) {
         if (err) {
             console.log(err);
             res.redirect('/');
@@ -119,8 +102,6 @@ app.post('/snakes/:id', function(req, res) {
         }
         
     })
-
-
 })
 
 
