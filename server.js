@@ -10,20 +10,12 @@ var app = express();
 // use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://localhost/mongoose_dash');
-
-var SnakeSchema = new mongoose.Schema({
-    species: {type: String, required: true},
-    color: String,
-    pic_url: String
-}, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});
-mongoose.model('Snake', SnakeSchema);
-var Snake = mongoose.model('Snake');
-
 // setting up ejs and our views folder
 app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
 
+//require mongoose model config stuff
+require('./server/config/mongoose.js');
 // store function from routes module.exports in a variable
 var routes_setter = require('./server/config/routes.js');
 // invoke the function stored in routes_setter and pass it the "app" variable
